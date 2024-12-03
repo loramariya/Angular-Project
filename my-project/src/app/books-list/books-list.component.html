@@ -1,1 +1,19 @@
-<p>books-list works!</p>
+<h1 class="catalog-title">Book Catalog</h1>
+
+<div class="catalog">
+        @for (book of books; track $index) {
+        <div class="book-card">
+            <div class="book-image">
+                <img [src]="book.imageUrl" [alt]="book.name">
+            </div>
+            <div class="book-details">
+                <h2>{{ book.name }}</h2>
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p><strong>Genre:</strong> {{ book.genre }}</p>
+                <p><strong>Year:</strong> {{ book.year }}</p>
+                <button class="show-more">  Show More </button>
+            </div>
+        </div>
+    }
+</div>
+

@@ -62,24 +62,24 @@
 
 @media (max-width: 768px) {
   .container {
-    height: auto;             /* Allow the container to expand based on content */
+    height: auto;           
   }
 
   .content {
-    padding: 20px;            /* Less padding for smaller screens */
-    max-width: 95%;           /* Allow more flexibility on smaller screens */
+    padding: 20px;           
+    max-width: 95%;        
   }
 
   .content h3 {
-    font-size: 2rem;          /* Slightly smaller heading on mobile */
+    font-size: 2rem;     
   }
 
   .content p {
-    font-size: 1rem;          /* Adjust paragraph font size for smaller screens */
+    font-size: 1rem;     
   }
 
   .btn {
-    font-size: 1rem;          /* Smaller button text for mobile */
-    padding: 10px 20px;       /* Adjust padding for smaller screens */
+    font-size: 1rem;          
+    padding: 10px 20px;    
   }
 }
