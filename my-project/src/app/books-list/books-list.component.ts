@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Book } from '../types/book';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-books-list',
   standalone: true,
-  imports: [LoaderComponent],
+  imports: [LoaderComponent,SlicePipe],
   templateUrl: './books-list.component.html',
   styleUrl: './books-list.component.css'
 })
