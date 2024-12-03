@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar">
+  <nav class="navbar">
     <div class="navbar-logo">
       <img src="logo.png" alt="Logo" />
     </div>
@@ -8,21 +8,26 @@
       <li><a routerLink="/books">Catalog</a>
       <li><a routerLink="/add-book">Add Book</a>
     </ul>
+
     <div class="navbar-actions">
-        <ul>
-            <li>
-              <a >Logout</a>
-            </li>
-            <li>
-              <a routerLink="/login">Login</a>
-            </li>
-            <li>
-              <a routerLink="/register">Register</a>
-            </li>
-         
-          </ul>
+      <ul>
+        @if (isLoggedIn) {
+        <li>
+          <a>Logout</a>
+        </li>
+        }
+        @else {
+        <li>
+          <a routerLink="/login">Login</a>
+        </li>
+        <li>
+          <a routerLink="/register">Register</a>
+        </li>
+
+        }
+
+
+      </ul>
     </div>
   </nav>
 </header>
-
-  

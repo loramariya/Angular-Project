@@ -1,6 +1,11 @@
-<h1 class="catalog-title">Book Catalog</h1>
+<main>
+    <h1 class="catalog-title">BOOK CATALOG</h1>
 
-<div class="catalog">
+    @if(isLoading) {
+    <app-loader />
+    }
+    @else {
+    <div class="catalog">
         @for (book of books; track $index) {
         <div class="book-card">
             <div class="book-image">
@@ -11,9 +16,10 @@
                 <p><strong>Author:</strong> {{ book.author }}</p>
                 <p><strong>Genre:</strong> {{ book.genre }}</p>
                 <p><strong>Year:</strong> {{ book.year }}</p>
-                <button class="show-more">  Show More </button>
+                <button class="show-more"> Show More </button>
             </div>
         </div>
+        }
+    </div>
     }
-</div>
-
+</main>
