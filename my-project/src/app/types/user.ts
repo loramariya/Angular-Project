@@ -1,6 +1,6 @@
 export interface User {
     books: [];
-    posts: [];
+    comments: [];
     _id: string;
     username: string;
     email: string;

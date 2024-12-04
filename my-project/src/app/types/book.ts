@@ -8,7 +8,7 @@ export interface Book{
     imageUrl: string;
     description: string;
     likes: string[];
-    posts: string[];
+    comments: Comment[];
     userId: User;
     _id: string;
     created_at: string;

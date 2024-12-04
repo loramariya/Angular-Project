@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment.development';
 import { Book } from './types/book';
-import { Post } from './types/post';
+import { Comment } from './types/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +10,17 @@ import { Post } from './types/post';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getPosts(){
+  getComments(){
     const {apiUrl} = environment;
-    return this.http.get<Post[]>(`${apiUrl}/posts`)
+    return this.http.get<Comment[]>(`${apiUrl}/comments`)
   }
   getBooks() {
     const {apiUrl} = environment;
     return this.http.get<Book[]>(`${apiUrl}/books`);
+  }
+
+  getBookById(id:string) {
+    const {apiUrl} = environment;
+    return this.http.get<Book>(`${apiUrl}/books/${id}`);
   }
 }

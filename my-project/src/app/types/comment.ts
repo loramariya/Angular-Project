@@ -1,7 +1,7 @@
 import { Book } from "./book";
 import { User } from "./user";
 
-export interface Post {
+export interface Comment {
     _id: string;
     text: string;
     userId: User;

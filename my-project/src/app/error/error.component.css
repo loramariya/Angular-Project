@@ -1,0 +1,9 @@
+a {
+    background-color: #ffc105;
+    border: #ffc105;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #e47200;
+}
