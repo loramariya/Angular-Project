@@ -1,14 +1,14 @@
 <div class="book-details-container">
     <!-- Book Details Section -->
     <div class="book-info">
-      <img [src]="" alt="" class="book-image" />
+      <img [src]="book.imageUrl" alt="{{book.title}}" class="book-image" />
       <div class="book-metadata">
-        <h1 class="book-title">Title</h1>
-        <p class="book-author"><strong>Author:</strong> author</p>
-        <p class="book-genre"><strong>Genre:</strong> Genre</p>
-        <p class="book-year"><strong>Year:</strong> Year</p>
-        <p class="book-description">Description</p>
-        <p class="book-likes"><strong>Likes:</strong> 2</p>
+        <h1 class="book-title">{{book.title}}</h1>
+        <p class="book-author"><strong>Author:</strong> {{book.author}}</p>
+        <p class="book-genre"><strong>Genre:</strong> {{book.genre}}</p>
+        <p class="book-year"><strong>Year:</strong> {{book.year}}</p>
+        <p class="book-description">{{book.description}}</p>
+        <p class="book-likes"><strong>Likes:</strong> {{book.likes.length || 0}}</p>
   
         <!-- Buttons -->
         <div class="book-actions">
@@ -31,17 +31,17 @@
         <textarea placeholder="Leave a comment..."></textarea>
         <button class="btn-add-comment">Post Comment</button>
       </div>
-  
+
       <!-- Comments List -->
       <ul class="comments-list">
-        <li class="comment-item">
-          <p class="comment-text">asdadasdadadadadawdwa</p>
-          <p class="comment-author">- user</p>
-        </li>
-        <li class="comment-item">
-            <p class="comment-text">comment</p>
-            <p class="comment-author">- user</p>
+        @for (comment of book.comments; track $index) {
+          <li class="comment-item">
+            <p class="comment-text">Text</p>
+            <p class="comment-author">-Name </p>
           </li>
+          
+        }
+        
       </ul>
     </div>
   </div>

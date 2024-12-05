@@ -6,6 +6,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { ErrorComponent } from './error/error.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { BookDetailsComponent } from './book/book-details/book-details.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 export const routes: Routes = [
     {path: '',  redirectTo: '/home', pathMatch:'full'},
@@ -21,6 +22,7 @@ export const routes: Routes = [
     
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'profile', component: ProfileComponent},
 
     {path: '404', component: ErrorComponent},
     {path: '**', redirectTo: '/404'},

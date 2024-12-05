@@ -1,10 +1,10 @@
 import { User } from "./user";
 
 export interface Book{
-    name: string;
+    title: string;
     author: string;
     genre: string;
-    year: number;
+    year: string;
     imageUrl: string;
     description: string;
     likes: string[];

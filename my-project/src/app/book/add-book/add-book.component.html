@@ -4,23 +4,23 @@
         <form >
           <div class="form-group">
             <label for="title">Book Title</label>
-            <input type="text" id="title" name="title" required />
+            <input type="text" id="title" name="title" #inputTitle required />
           </div>
           <div class="form-group">
             <label for="author">Author</label>
-            <input type="text" id="author" name="author"  required />
+            <input type="text" id="author" name="author" #inputAuthor required />
           </div>
           <div class="form-group">
             <label for="genre">Genre</label>
-            <input type="text" id="genre" name="genre"  required />
+            <input type="text" id="genre" name="genre" #inputGenre  required />
           </div>
           <div class="form-group">
             <label for="year">Year</label>
-            <input type="number" id="year" name="year"  required />
+            <input type="number" id="year" name="year" #inputYear  required />
           </div>
           <div class="form-group">
             <label for="imageUrl">Image URL</label>
-            <input type="url" id="imageUrl" name="imageUrl" required />
+            <input type="url" id="imageUrl" name="imageUrl" #inputImageUrl required />
           </div>
           <div class="form-group">
             <label for="description">Description</label>
@@ -29,9 +29,12 @@
               name="description"
               rows="5"
               required
+              #inputDescription 
             ></textarea>
           </div>
-          <button type="submit" class="btn-submit">Add Book</button>
+          <button type="submit" class="btn-submit" 
+          (click)="addBook($event,inputTitle.value, inputAuthor.value, inputGenre.value, inputYear.value, inputImageUrl.value, inputDescription.value)"
+          >Add Book</button>
         </form>
       </div>
 </body>
