@@ -15,9 +15,11 @@
           <!-- Owner Options -->
           <button class="btn-edit">Edit</button>
           <button class="btn-delete">Delete</button>
-  
+
           <!-- Logged-In User Like Button -->
-          <button class="btn-like">Like</button>
+          @if (isLoggedIn) {
+            <button class="btn-like">Like</button>
+          }
         </div>
       </div>
     </div>
@@ -25,21 +27,26 @@
     <!-- Comments Section -->
     <div class="comments-section">
       <h2>Comments</h2>
-  
-      <!-- Add Comment (Logged-In Users Only) -->
-      <div class="add-comment">
-        <textarea placeholder="Leave a comment..."></textarea>
-        <button class="btn-add-comment">Post Comment</button>
-      </div>
+      @if (isLoggedIn) {
+
+        <!-- Add Comment (Logged-In Users Only) -->
+        <div class="add-comment">
+          <textarea placeholder="Leave a comment..."></textarea>
+          <button class="btn-add-comment">Post Comment</button>
+        </div>
+      }
 
       <!-- Comments List -->
       <ul class="comments-list">
-        @for (comment of book.comments; track $index) {
-          <li class="comment-item">
-            <p class="comment-text">Text</p>
-            <p class="comment-author">-Name </p>
-          </li>
-          
+        @if (book.comments.length===0) {
+          <p> No comments yet.</p>
+        } @else {
+          @for (comment of book.comments; track $index) {
+            <li class="comment-item">
+              <p class="comment-text">Text</p>
+              <p class="comment-author">-Name </p>
+            </li>
+          } 
         }
         
       </ul>

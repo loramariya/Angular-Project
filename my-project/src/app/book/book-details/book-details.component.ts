@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../../types/book';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-book-details',
@@ -13,7 +14,10 @@ import { ApiService } from '../../api.service';
 export class BookDetailsComponent implements OnInit {
   book = {} as Book;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private userService: UserService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['bookId'];

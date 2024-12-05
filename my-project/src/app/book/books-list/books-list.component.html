@@ -13,7 +13,9 @@
             <p class="book-author">by {{ book.author }}</p>
             <p class="book-description">{{ book.description | slice:0:70}}...</p>
             <div class="book-actions">
-              <button class="btn-like">Like ({{ book.likes.length }})</button>
+                @if (isLoggedIn) {
+                    <button class="btn-like">Like ({{ book.likes.length }})</button>
+                }
               <a class="btn-details" [routerLink]="book._id">View Details</a>
             </div>
         </div>
