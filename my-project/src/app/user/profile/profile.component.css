@@ -1,6 +1,5 @@
 body {
     display: flex;
-    justify-content: center;
     align-items: flex-start;
     padding-top: 20px;
   }
@@ -17,7 +16,7 @@ body {
   
   /* Profile Card */
   .profile-card {
-    text-align: center;
+    text-align: left;
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
     margin-bottom: 20px;
@@ -36,11 +35,11 @@ body {
   }
   
   /* Liked Books Section */
-  .liked-books {
+  .my-books {
     text-align: left;
   }
   
-  .liked-books h3 {
+  .my-books h3 {
     font-size: 1.2rem;
     color: #333;
     margin-bottom: 10px;

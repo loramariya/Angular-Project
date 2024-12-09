@@ -1,7 +1,7 @@
 <body>
-    <div class="add-book-container">
-        <h1>Add a New Book</h1>
-        <form  #form="ngForm" (ngSubmit)="addBook(form)">
+    <div class="edit-book-container">
+        <h1>Edit Book</h1>
+        <form  #form="ngForm" (ngSubmit)="editBook(form)">
           <div class="form-group">
             <label for="title">Book Title</label>
             <input 
@@ -11,7 +11,7 @@
             type="text" 
             id="title" 
             name="title" 
-            ngModel
+            [(ngModel)]="book.title"
             #inputTitle = "ngModel"
             required 
             />
@@ -32,7 +32,7 @@
             type="text" 
             id="author" 
             name="author" 
-            ngModel
+            [(ngModel)]="book.author"
             #inputAuthor = "ngModel"
             required 
             />
@@ -53,7 +53,7 @@
             type="text" 
             id="genre" 
             name="genre" 
-            ngModel
+            [(ngModel)]="book.genre"
             #inputGenre="ngModel"
             required 
             />
@@ -74,7 +74,7 @@
             type="number" 
             id="year" 
             name="year" 
-            ngModel
+            [(ngModel)]="book.year"
             #inputYear="ngModel"
             required 
             />
@@ -95,7 +95,7 @@
             type="url" 
             id="imageUrl" 
             name="imageUrl"
-            ngModel
+            [(ngModel)]="book.imageUrl"
             #inputImageUrl = "ngModel"
             required 
             />
@@ -116,7 +116,7 @@
               id="description"
               name="description"
               rows="5"
-              ngModel
+              [(ngModel)]="book.description"
               #inputDescription="ngModel"
               required
             ></textarea>
@@ -128,7 +128,11 @@
               }
             </div>
           }
-          <button type="submit" class="btn-submit" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid? 'gray' : ''}">Add Book</button>
+          <button type="submit" class="btn-submit" 
+          [disabled]="form.invalid" [style]="{backgroundColor: form.invalid? 'gray' : ''}"
+          >
+          Edit Book
+        </button>
         </form>
       </div>
 </body>

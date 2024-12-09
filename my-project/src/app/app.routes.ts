@@ -8,6 +8,7 @@ import { AddBookComponent } from './book/add-book/add-book.component';
 import { BookDetailsComponent } from './book/book-details/book-details.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditBookComponent } from './book/edit-book/edit-book.component';
 
 export const routes: Routes = [
     {path: '',  redirectTo: '/home', pathMatch:'full'},
@@ -17,6 +18,7 @@ export const routes: Routes = [
         children:[
             {path: '', component: BooksListComponent},
             {path: ':bookId', component: BookDetailsComponent},
+            {path: ':bookId/edit', component: EditBookComponent },
         ],
     }, 
     {path: 'add-book', component: AddBookComponent, canActivate:[AuthGuard]},

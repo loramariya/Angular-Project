@@ -1,8 +1,5 @@
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
   }
 .add-book-container {
     background-color: #f8e1c2;
@@ -70,4 +67,21 @@ body {
   
   .btn-submit:hover {
     background-color: #e47200;
+  }
+
+  p.error{
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: bold;
+  }
+  .input-error {
+    border-color: red;
+    box-shadow: 0 0 5px red;
+  }
+  .input-error:focus {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 5px red;
   }

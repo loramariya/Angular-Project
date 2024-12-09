@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../types/book';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { UserService } from '../../user/user.service';
 
@@ -17,7 +17,7 @@ export class BookDetailsComponent implements OnInit {
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private userService: UserService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['bookId'];
@@ -27,5 +27,9 @@ export class BookDetailsComponent implements OnInit {
       
       this.book = book;
     })
+  }
+  onEdit(): void {
+    // Redirect to the edit page with the book ID
+    this.router.navigate([`/books/${this.book._id}/edit`]);
   }
 }

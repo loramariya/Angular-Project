@@ -1,12 +1,7 @@
 
 body {
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    background-color:white;
+    min-height: 80vh;
 }
 
 .form-container {
@@ -83,4 +78,21 @@ body {
   
   .redirect a:hover {
     text-decoration: underline;
+  }
+
+  p.error{
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: bold;
+  }
+  .input-error {
+    border-color: red;
+    box-shadow: 0 0 5px red;
+  }
+  .input-error:focus {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 5px red;
   }

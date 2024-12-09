@@ -1,29 +1,115 @@
 <body>
     <div class="form-container">
         <h1>Register</h1>
-        <form >
+        <form #form="ngForm" (ngSubmit)="register(form)" >
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username"name="username" required />
+            <input 
+            [class]="(
+            (inputUsername?.touched && inputUsername?.errors?.['required']) || 
+             (inputUsername?.touched && inputUsername?.errors?.['minlength']))
+             ? 'input-error': ''"
+            type="text" 
+            id="username"
+            name="username" 
+            ngModel
+            #inputUsername= "ngModel"
+            minlength="5"
+            required 
+            />
           </div>
+          @if (inputUsername.touched) {
+            <div>
+              @if (inputUsername?.errors?.['required']) {
+                <p class="error"> Username is required!</p>
+              }
+              @if (inputUsername?.errors?.['minlength']) {
+                <p class="error"> Username must be at least 5 characters!</p>
+              }
+            </div>
+          }
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email"  name="email" required />
+            <input 
+            [class]="(
+            (inputEmail?.touched && inputEmail?.errors?.['required']) || 
+             (inputEmail?.touched && inputEmail?.errors?.['email']))
+             ? 'input-error': ''"
+            type="email" 
+            id="email"  
+            name="email" 
+            ngModel
+            #inputEmail = "ngModel"
+            required 
+            email/>
           </div>
+          @if (inputEmail.touched) {
+            <div>
+              @if (inputEmail?.errors?.['required']) {
+                <p class="error"> Email is required!</p>
+              }
+              @if (inputEmail?.errors?.['email']) {
+                <p class="error"> Email is not valid!</p>
+              }
+            </div>
+          }
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required />
+            <input 
+            [class]="(
+            (inputPassword?.touched && inputPassword?.errors?.['required']) || 
+             (inputPassword?.touched && inputPassword?.errors?.['minlength']))
+             ? 'input-error': ''"
+            type="password" 
+            id="password" 
+            name="password" 
+            [(ngModel)] = "formData.password"
+            #inputPassword = "ngModel"
+            minlength="5"
+            required 
+            />
           </div>
+          @if (inputPassword.touched) {
+            <div>
+              @if (inputPassword?.errors?.['required']) {
+                <p class="error"> Password is required!</p>
+              }
+              @if (inputPassword?.errors?.['minlength']) {
+                <p class="error"> Password must be at least 5 characters!</p>
+              }
+            </div>
+          }
           <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
             <input
+            [class]="(
+            (inputConfirmPassword?.touched && inputConfirmPassword?.errors?.['required']) || 
+             (inputConfirmPassword?.touched && inputConfirmPassword?.errors?.['minlength'])||
+             (inputConfirmPassword?.touched &&!passwordsMatch))
+             ? 'input-error': ''"
               type="password"
               id="confirmPassword"
               name="confirmPassword"
+              [(ngModel)] = "formData.confirmPassword"
+              #inputConfirmPassword = "ngModel"
+              minlength="5"
               required
             />
           </div>
-          <button type="submit" class="btn-submit">Register</button>
+          @if (inputConfirmPassword.touched) {
+            <div>
+              @if (inputConfirmPassword?.errors?.['required']) {
+                <p class="error"> Confirm password is required!</p>
+              }
+              @if (inputConfirmPassword?.errors?.['minlength']) {
+                <p class="error"> Confirm password must be at least 5 characters!</p>
+              }
+              @if (!passwordsMatch) {
+                <p class="error"> Passwords don't match!</p>
+              }
+            </div>
+          }
+          <button type="submit" class="btn-submit" [disabled]="form.invalid">Register</button>
           <p class="redirect">
             Already have an account? <a routerLink="/login">Login here</a>
           </p>
