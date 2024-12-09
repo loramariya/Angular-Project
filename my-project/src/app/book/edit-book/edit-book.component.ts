@@ -36,15 +36,18 @@ export class EditBookComponent implements OnInit{
         description: this.book.description
     };
 
-      this.apiService.updateBook(this.book._id, updatedData).subscribe(
-            response => {
-                console.log('Book updated successfully!', response);
-                this.router.navigate(['/book-details', this.book._id]);
-            },
-            error => {
-                console.error('Error updating book', error);
-            }
-        );
+      // this.apiService.updateBook(this.book._id, updatedData).subscribe(
+        
+      //       response => {
+      //           // console.log('Book updated successfully!', response);
+      //           // this.router.navigate(['/book-details', this.book._id]);
+      //       },
+      //       error => {
+      //         console.log(updatedData);
+      //           console.error('Error updating book', error);
+
+      //       }
+      //   );
     }
   }
 }

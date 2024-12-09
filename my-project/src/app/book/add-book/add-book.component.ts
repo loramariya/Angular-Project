@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-book',
@@ -10,20 +11,19 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './add-book.component.css'
 })
 export class AddBookComponent {
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   addBook(form: NgForm) {
-    console.log(form.invalid)
+
     if (form.invalid) {
       return;
     }
     
-    console.log(form.value);
-    
+    const { title, author, genre, year, imageUrl, description } = form.value;
     
 
-    // this.apiService.addBook(title, author, genre, year, imageUrl, description).subscribe(data => {
-    //   console.log('Book added successfully', data);
-    // });
+    this.apiService.addBook(title, author, genre, year, imageUrl, description).subscribe(() => {
+     this.router.navigate(['/books']);
+     });
   }
 }

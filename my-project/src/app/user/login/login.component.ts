@@ -18,16 +18,12 @@ export class LoginComponent {
       return;
     }
     
+    const {email, password} = form.value;
 
-    this.userService.login();
-    this.router.navigate(['/home']);
-    // //(emailValue, passwordValue).subscribe(() => {
-    //   // Redirect to home page after successful login
-    //   this.userService.isLoggedIn = true;
-    // }, () => {
-    //   // Handle login error
-    //   console.error('Login failed');
-    // }); 
+    this.userService.login(email, password).subscribe(() => {
+      this.router.navigate(['/books']);
+
+    })
     
   }
 }
