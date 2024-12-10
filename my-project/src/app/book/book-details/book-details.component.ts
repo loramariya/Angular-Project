@@ -22,14 +22,18 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['bookId'];
 
-    this.apiService.getBookById(id).subscribe(book => {
-      console.log(book);
-      
+    this.apiService.getBookById(id).subscribe(book => {      
       this.book = book;
     })
   }
   onEdit(): void {
     // Redirect to the edit page with the book ID
     this.router.navigate([`/books/${this.book._id}/edit`]);
+  }
+  onDelete(): void {
+    this.apiService.deleteBook(this.book._id).subscribe(()=>{
+      this.router.navigate(['/books']);
+    }
+  )
   }
 }

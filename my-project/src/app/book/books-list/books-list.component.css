@@ -44,6 +44,10 @@
   font-size: 1.2rem;
   margin: 10px;
   color: #444;
+  white-space: nowrap; /* Prevents text from wrapping onto a new line */
+  overflow: hidden; /* Hides any content that overflows */
+  text-overflow: ellipsis; /* Adds an ellipsis at the end of the truncated text */
+  max-width: 200px;
 }
 
 .book-author {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserForAuth } from '../types/user';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +11,20 @@ export class UserService {
   private user$ = this.user$$.asObservable(); 
   USER_KEY = '[user]';
   user: UserForAuth | null = null;
+  userSubscription: Subscription | null = null;
 
   get isLogged(): boolean {
     return!!this.user;
   };
 
   constructor(private http: HttpClient) { 
-    this.user$.subscribe((user) => {
+    const savedUser = localStorage.getItem(this.USER_KEY);
+    if(savedUser){
+      this.user$$.next(JSON.parse(savedUser));
+    }
+    
+    this.userSubscription= this.user$.subscribe((user) => {
       this.user = user;
-      
     });
   }
 

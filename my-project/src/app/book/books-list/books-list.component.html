@@ -7,18 +7,25 @@
     @else {
     <div class="books-grid">
         @for (book of books; track $index) {
-        <div class="book-card">
-            <img [src]="book.imageUrl" alt="{{ book.title }}" class="book-image" />
-            <h2 class="book-title">{{ book.title }}</h2>
-            <p class="book-author">by {{ book.author }}</p>
-            <p class="book-description">{{ book.description | slice:0:70}}...</p>
-            <div class="book-actions">
-                @if (isLoggedIn) {
-                    <button class="btn-like">Like ({{ book.likes.length }})</button>
-                }
-              <a class="btn-details" [routerLink]="book._id">View Details</a>
+            <div class="book-card">
+                <img [src]="book.imageUrl" alt="{{ book.title }}" class="book-image" />
+                <h2 class="book-title" >{{ book.title | slice:0:50}} 
+                    @if (book.title.length> 50) {
+                        <span>...</span> }
+                    </h2>
+                <p class="book-author">by {{ book.author }}</p>
+                <p class="book-description">{{ book.description | slice:0:70}}
+                    @if (book.description.length> 70) {
+                        <span>...</span>
+                    }
+                </p>
+                <div class="book-actions">
+                    @if (isLoggedIn) {
+                        <button class="btn-like">Like ({{ book?.likes?.length }})</button>
+                    }
+                    <a class="btn-details" [routerLink]="book._id">View Details</a>
+                </div>
             </div>
-        </div>
         }
     </div>
     }

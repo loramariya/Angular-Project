@@ -26,28 +26,18 @@ export class EditBookComponent implements OnInit{
   }
   
   editBook(form: NgForm): void{
-    if (form.valid) {
-      const updatedData = {
-        title: this.book.title,
-        author: this.book.author,
-        genre: this.book.genre,
-        year: this.book.year,
-        imageUrl: this.book.imageUrl,
-        description: this.book.description
-    };
-
-      // this.apiService.updateBook(this.book._id, updatedData).subscribe(
-        
-      //       response => {
-      //           // console.log('Book updated successfully!', response);
-      //           // this.router.navigate(['/book-details', this.book._id]);
-      //       },
-      //       error => {
-      //         console.log(updatedData);
-      //           console.error('Error updating book', error);
-
-      //       }
-      //   );
+   
+    if (form.invalid) {
+      return;
     }
+    const bookId = this.book._id
+    const { title, author, genre, year, imageUrl, description } = form.value;
+    
+
+    this.apiService.updateBook(bookId,title, author, genre, year, imageUrl, description).subscribe(
+      () => {
+      console.log(form.value)
+     this.router.navigate([`/books/${bookId}`]);
+     });
   }
 }

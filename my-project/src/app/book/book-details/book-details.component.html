@@ -14,7 +14,7 @@
         <div class="book-actions">
           <!-- Owner Options -->
           <button class="btn-edit" (click)="onEdit()" >Edit</button>
-          <button class="btn-delete">Delete</button>
+          <button class="btn-delete" (click)="onDelete()">Delete</button>
 
           <!-- Logged-In User Like Button -->
           @if (isLoggedIn) {

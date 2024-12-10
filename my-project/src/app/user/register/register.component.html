@@ -109,7 +109,10 @@
               }
             </div>
           }
-          <button type="submit" class="btn-submit" [disabled]="form.invalid">Register</button>
+          <button type="submit" class="btn-submit" 
+          [disabled]="form.invalid" [style]="{backgroundColor: form.invalid? 'gray' : ''}"
+          >Register
+        </button>
           <p class="redirect">
             Already have an account? <a routerLink="/login">Login here</a>
           </p>
